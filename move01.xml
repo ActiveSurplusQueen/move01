@@ -1,29 +1,88 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="movement_forward" id="1" x="371" y="177">
+  <block type="variables_set" id="84" inline="true" x="138" y="127">
+    <field name="VAR">i</field>
+    <value name="VALUE">
+      <block type="math_number" id="91">
+        <field name="NUM">0</field>
+      </block>
+    </value>
     <next>
-      <block type="robot_delay" id="2" inline="true">
-        <value name="DELAY">
-          <block type="math_number" id="3">
-            <field name="NUM">2000</field>
+      <block type="controls_whileUntil" id="82" inline="false">
+        <field name="MODE">WHILE</field>
+        <value name="NUMBER">
+          <block type="logic_compare" id="98" inline="true">
+            <field name="OP">LT</field>
+            <value name="A">
+              <block type="variables_get" id="102">
+                <field name="VAR">i</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="109">
+                <field name="NUM">4</field>
+              </block>
+            </value>
           </block>
         </value>
-        <next>
-          <block type="movement_right" id="4">
+        <statement name="DO">
+          <block type="procedures_callnoreturn" id="114">
+            <mutation name="moveSub"></mutation>
             <next>
-              <block type="robot_delay" id="6" inline="true">
-                <value name="DELAY">
-                  <block type="math_number" id="7">
-                    <field name="NUM">2000</field>
+              <block type="variables_set" id="118" inline="true">
+                <field name="VAR">i</field>
+                <value name="VALUE">
+                  <block type="math_arithmetic" id="125" inline="true">
+                    <field name="OP">ADD</field>
+                    <value name="A">
+                      <block type="variables_get" id="129">
+                        <field name="VAR">i</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="136">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
                   </block>
                 </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="movement_stop" id="5"></block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defnoreturn" id="75" x="389" y="306">
+    <mutation></mutation>
+    <field name="NAME">moveSub</field>
+    <statement name="STACK">
+      <block type="movement_forward" id="1">
+        <next>
+          <block type="robot_delay" id="2" inline="true">
+            <value name="DELAY">
+              <block type="math_number" id="3">
+                <field name="NUM">2000</field>
+              </block>
+            </value>
+            <next>
+              <block type="movement_right" id="4">
                 <next>
-                  <block type="movement_stop" id="5"></block>
+                  <block type="robot_delay" id="6" inline="true">
+                    <value name="DELAY">
+                      <block type="math_number" id="7">
+                        <field name="NUM">2000</field>
+                      </block>
+                    </value>
+                  </block>
                 </next>
               </block>
             </next>
           </block>
         </next>
       </block>
-    </next>
+    </statement>
   </block>
 </xml>
